@@ -15,20 +15,20 @@ Ce projet vise à étudier l'installation et la configuration d'un outil de gest
 ### Mercredi 16/10
 - **Durée** : 6 heures
 - **Activités** :
-  - Recherche sur Dolibarr et ses fonctionnalités.
-  - Première prise en main de l'installation manuelle sur une VM.
+  - Constitution des équipes.
+  - Recherche préliminaire sur Dolibarr et ses fonctionnalités.
 
 ### Jeudi 17/10
 - **Durée** : 3 heures
 - **Activités** :
-  - Installation de Dolibarr sur une machine Debian.
-  - Configuration initiale (accès à la base de données, création de comptes).
+  - Documentation sur l'installation de Dolibarr.
+  - Exploration des différentes fonctionnalités et des besoins de l'entreprise.
 
 ### Jeudi 24/10
 - **Durée** : 3 heures
 - **Activités** :
-  - Tests d'importation des données à partir de fichiers CSV.
-  - Documentation des étapes d'installation et des tests effectués.
+  - Comparaison des deux images de Dolibarr fournies par le professeur.
+  - Poursuite de la documentation des étapes d'installation et des tests effectués.
 
 ## 4. Description du projet
 L'objectif est de migrer d'une solution ERP/CRM externalisée vers une solution hébergée en interne, utilisant Dolibarr. Nous devons nous assurer que l'installation est automatisée et que l'importation des données est efficace.
