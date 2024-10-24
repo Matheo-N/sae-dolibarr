@@ -27,7 +27,7 @@ Ce projet vise à étudier l'installation et la configuration d'un outil de gest
 ### Jeudi 24/10
 - **Durée** : 3 heures
 - **Activités** :
-  - Comparaison des deux images de Dolibarr fournies par le professeur.
+  - Comparaison des deux images de Dolibarr existantes ( vu en cour lors de la présentation du projet )
   - Poursuite de la documentation des étapes d'installation et des tests effectués.
 
 ## 4. Description du projet
