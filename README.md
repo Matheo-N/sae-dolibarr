@@ -94,8 +94,8 @@ Pour restaurer une sauvegarde :
 Le fichier `suivi_projet.md` contient un journal de bord détaillant les activités de chaque séance, les difficultés rencontrées et les prochaines étapes. Ce suivi est essentiel pour la gestion du projet et permet de garder une trace de l'évolution du travail.
 
 ## Auteurs
-- **Nom 1** : Rôle (par exemple, développement des scripts, configuration de Dolibarr).
-- **Nom 2** : Rôle (par exemple, gestion du projet, documentation).
+- **Nouvel Mathéo** : Chef de projet et gestion instalation dolibarr.
+- **Morel Robin** : Membre de l'équipe en charge des dockers et de la documentation sur les différentes solutions ainsi que du développement de solution de restauration de données.
 
 ## Références
 - [Documentation Dolibarr](https://www.dolibarr.org/)
@@ -107,7 +107,3 @@ Le fichier `suivi_projet.md` contient un journal de bord détaillant les activit
 1. Ajouter des fonctionnalités supplémentaires dans Dolibarr (par exemple, gestion des produits).
 2. Améliorer la documentation et les tests.
 3. Préparer une présentation du projet pour la soutenance.
-
----
-
-**Note :** N'oubliez pas de mettre à jour ce fichier `README.md` à chaque ajout de nouvelles fonctionnalités ou de changements majeurs dans le projet. Cela permettra à tous les membres de l'équipe et aux enseignants de suivre l'évolution du projet.
