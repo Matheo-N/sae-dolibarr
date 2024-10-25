@@ -44,7 +44,7 @@ Avant de commencer l'installation, assurez-vous que les éléments suivants sont
 ### Étapes d'installation
 1. **Cloner le dépôt** :
    ```bash
-   git clone https://github.com/<votre-utilisateur>/sae-dolibarr.git
+   git clone git@github.com:Matheo-N/sae-dolibarr.git
    cd sae-dolibarr
    ```
 
