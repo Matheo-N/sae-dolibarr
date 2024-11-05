@@ -81,13 +81,13 @@ Pour faciliter le déploiement et la gestion de l'application, nous avons utilis
 La sauvegarde des données est cruciale pour assurer la continuité de l'activité. Pour créer une sauvegarde :
 1. Exécutez la commande suivante pour sauvegarder la base de données :
    ```bash
-   docker exec -i sae-dolibarr_mariadb_1 mysqldump --user root --password=root dolibarr > backup.dump
+   docker exec -i sae-dolibarr_mariadb_1 mysqldump --user root --password=root dolibarr > backup.csv
    ```
 
 Pour restaurer une sauvegarde :
 1. Utilisez la commande suivante :
    ```bash
-   docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mysql --user root --password=root dolibarr < backup.dump
+   docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mysql --user root --password=root dolibarr < backup.csv
    ```
 
 ## Suivi du Projet
