@@ -1,1 +1,1 @@
-docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mysql --user root --password=root dolibarr < backup.dump
+docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mysql --user root --password=root dolibarr < backup.csv
