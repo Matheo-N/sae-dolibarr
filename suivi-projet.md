@@ -27,8 +27,23 @@ Ce projet vise à étudier l'installation et la configuration d'un outil de gest
 ### Jeudi 24/10
 - **Durée** : 3 heures
 - **Activités** :
-  - Comparaison des deux images de Dolibarr existantes ( vu en cour lors de la présentation du projet )
+  - Comparaison des deux images de Dolibarr existantes (vue en cours lors de la présentation du projet).
   - Poursuite de la documentation des étapes d'installation et des tests effectués.
+
+### Vendredi 25/10
+- **Durée** : 3 heures
+- **Activités** :
+  - Début des tests d'installation de Dolibarr dans un conteneur Docker.
+  - Vérification des dépendances et des configurations de base requises pour le conteneur.
+  - Documentation de l’avancement et des éléments nécessaires pour la suite.
+
+### Lundi 04/11
+- **Durée** : 3 heures
+- **Activités** :
+  - Résolution d'un problème de connexion entre Dolibarr et le SGBD MariaDB dans Docker.
+  - **Problème rencontré** : Lors de l'installation, une erreur de connexion empêchait Dolibarr d'accéder au SGBD. Nous avons découvert que le conteneur Dolibarr n'attendait pas que le conteneur MariaDB soit complètement opérationnel avant d'établir la connexion.
+  - **Solution** : Mise en place d'un script de délai pour s'assurer que MariaDB soit pleinement lancé avant que Dolibarr tente de se connecter. Cela a permis de finaliser l'installation et de passer à la configuration initiale.
+  - Documentation des étapes de résolution.
 
 ## 4. Description du projet
 L'objectif est de migrer d'une solution ERP/CRM externalisée vers une solution hébergée en interne, utilisant Dolibarr. Nous devons nous assurer que l'installation est automatisée et que l'importation des données est efficace.
@@ -41,7 +56,7 @@ L'objectif est de migrer d'une solution ERP/CRM externalisée vers une solution 
 
 ## 5. Prochaines étapes
 - Finaliser l'automatisation de l'installation et de l'importation des données.
-- Continuer la documentation des processus.
+- Poursuivre la documentation des processus.
 - Tester les fonctionnalités de Dolibarr pour s'assurer de leur bon fonctionnement.
 
 ## 6. Ressources
