@@ -1,7 +1,7 @@
 NOM_BDD="dolibarr"
 BDD_LOGIN="root"
 BDD_PWD="root"
-FICHIER_BDD=backup_bdd.sql
+FICHIER_BDD="backup_bdd.sql"
 
 if [! -f "$FICHIER_BDD"]
 then 	echo"Fichier '$FICHIER_BDD' inexistant

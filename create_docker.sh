@@ -1,3 +1,9 @@
+NOM_BDD="dolibarr"
+BDD_LOGIN="root"
+BDD_PWD="root"
+FICHIER_BDD="backup_bdd.sql"
+
+cat <<EOL > docker-compose.yml
 version: '3'
 services:
     mariadb:
@@ -18,3 +24,9 @@ services:
             - "80:80"
         links:
             - mariadb
+EOL
+
+# Lancement de Docker Compose
+echo "Démarrage de l'application Dolibarr..."
+docker-compose up
+
