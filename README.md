@@ -1,109 +1,107 @@
 
-# Projet SAE51 - Installation d’un ERP/CRM avec Dolibarr
-
-## Sommaire
-- [Introduction](#introduction)
-- [Objectifs du Projet](#objectifs-du-projet)
-- [Technologies Utilisées](#technologies-utilisées)
-- [Installation de Dolibarr](#installation-de-dolibarr)
-  - [Prérequis](#prérequis)
-  - [Étapes d'installation](#étapes-dinstallation)
-  - [Configuration initiale](#configuration-initiale)
-- [Importation des Données](#importation-des-données)
-- [Dockerisation](#dockerisation)
-- [Sauvegarde et Restauration](#sauvegarde-et-restauration)
-- [Suivi du Projet](#suivi-du-projet)
-- [Auteurs](#auteurs)
-- [Références](#références)
-- [Prochaines Étapes](#prochaines-étapes)
+# Projet SAE51 - Installation d'un ERP/CRM avec Dolibarr
 
 ## Introduction
-Dans le cadre du projet SAE51 à l'IUT de Rouen, nous avons pour mission de migrer une solution ERP/CRM vers une installation interne de Dolibarr. Ce projet vise à automatiser l'installation et la configuration de Dolibarr, ainsi que l'importation des données clients et fournisseurs à partir de fichiers CSV. 
+Ce projet a pour objectif l’installation et la configuration de **Dolibarr**, un ERP/CRM, en utilisant Docker pour simplifier le processus d'installation et de gestion de l'application. Ce README fournit toutes les étapes nécessaires pour configurer et tester le projet sur votre propre machine.
 
-## Objectifs du Projet
-1. Installer Dolibarr sur un serveur local.
-2. Automatiser l'importation des données à partir de fichiers CSV.
-3. Assurer la sauvegarde et la récupération des données.
-4. Dockeriser l'ensemble de l'application pour une portabilité maximale.
+## Prérequis
+Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre machine :
+- **Docker** : [Installation de Docker](https://docs.docker.com/get-docker/)
+- **Docker Compose** : [Installation de Docker Compose](https://docs.docker.com/compose/install/)
+- **Git** : [Installation de Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-## Technologies Utilisées
-- **Dolibarr** : Progiciel de gestion intégré (ERP/CRM) écrit en PHP.
-- **MariaDB/MySQL** : Système de gestion de base de données utilisé pour stocker les données.
-- **Docker** : Outil de containerisation pour créer et gérer des conteneurs.
-- **Bash** : Langage de script utilisé pour automatiser les processus d'installation et d'importation.
-- **Debian** : Distribution Linux utilisée comme système d'exploitation pour le serveur.
+## Structure des fichiers
 
-## Installation de Dolibarr
+Voici la structure des fichiers et des répertoires dans ce projet :
 
-### Prérequis
-Avant de commencer l'installation, assurez-vous que les éléments suivants sont installés sur votre serveur :
-- **Docker** : Pour gérer les conteneurs.
-- **Docker Compose** : Pour orchestrer les conteneurs.
-- **Un accès root** : Pour effectuer les installations nécessaires.
+```
+sae-dolibarr/
+├── data/              # Contient les données persistantes de Dolibarr
+├── docs/              # Documentation du projet
+├── sources/           # Code source des scripts et fichiers nécessaires
+│   ├── create_docker.sh    # Script pour créer les containers Docker
+│   ├── export.sh          # Script pour exporter les données de Dolibarr
+│   ├── import.sh          # Script pour importer les données dans Dolibarr
+├── tests/             # Dossier pour les tests unitaires et d'intégration
+├── README.md          # Ce fichier
+```
 
-### Étapes d'installation
-1. **Cloner le dépôt** :
-   ```bash
-   git clone git@github.com:Matheo-N/sae-dolibarr.git
-   cd sae-dolibarr
-   ```
+## Étapes d'installation
 
-2. **Exécuter le script d'installation** :
-   ```bash
-   chmod +x install.sh
-   ./install.sh
-   ```
-   Ce script va :
-   - Installer Dolibarr et les dépendances nécessaires.
-   - Configurer la base de données MariaDB.
+### 1. Clonez le dépôt Git
+La première étape est de cloner ce dépôt Git sur votre machine locale :
 
-### Configuration initiale
-Une fois l'installation terminée, vous devez configurer Dolibarr :
-1. Ouvrir votre navigateur et accéder à `http://localhost/dolibarr/install`.
-2. Suivre les instructions pour créer un compte administrateur et configurer les modules.
+```bash
+git clone https://github.com/Matheo-N/sae-dolibarr.git
+cd sae-dolibarr
+```
 
-## Importation des Données
-Pour importer les données des fichiers CSV :
-1. Préparez vos fichiers CSV dans le dossier `data/`.
-2. Utilisez le script d'importation :
-   ```bash
-   chmod +x import_csv.sh
-   ./import_csv.sh
-   ```
-   Ce script va lire les fichiers CSV et insérer les données dans la base de données de Dolibarr.
+### 2. Créez les conteneurs Docker
+Le script `create_docker.sh` vous permet de créer les conteneurs Docker pour **Dolibarr** et **MariaDB**.
 
-## Dockerisation
-Pour faciliter le déploiement et la gestion de l'application, nous avons utilisé Docker :
-- Le fichier `Dockerfile` définit l'image de base pour Dolibarr.
-- Les conteneurs sont créés pour Dolibarr et la base de données, permettant une isolation et une gestion simplifiées.
+- Ouvrez un terminal dans le dossier `sae-dolibarr`.
+- Exécutez la commande suivante pour créer les conteneurs Docker :
 
-## Sauvegarde et Restauration
-La sauvegarde des données est cruciale pour assurer la continuité de l'activité. Pour créer une sauvegarde :
-1. Exécutez la commande suivante pour sauvegarder la base de données :
-   ```bash
-   docker exec -i sae-dolibarr_mariadb_1 mysqldump --user root --password=root dolibarr > backup.csv
-   ```
+```bash
+bash sources/create_docker.sh
+```
 
-Pour restaurer une sauvegarde :
-1. Utilisez la commande suivante :
-   ```bash
-   docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mysql --user root --password=root dolibarr < backup.csv
-   ```
+Ce script va télécharger les images Docker nécessaires, créer les conteneurs pour Dolibarr et MariaDB, puis démarrer les services.
 
-## Suivi du Projet
-Le fichier `suivi_projet.md` contient un journal de bord détaillant les activités de chaque séance, les difficultés rencontrées et les prochaines étapes. Ce suivi est essentiel pour la gestion du projet et permet de garder une trace de l'évolution du travail.
+### 3. Connexion à Dolibarr
+Une fois que les conteneurs sont démarrés, vous pouvez accéder à Dolibarr via votre navigateur à l'adresse suivante :
 
-## Auteurs
-- **Nouvel Mathéo** : Chef de projet et gestion instalation dolibarr.
-- **Morel Robin** : Membre de l'équipe en charge des dockers et de la documentation sur les différentes solutions ainsi que du développement de solution de restauration de données.
+```
+http://localhost:8080
+```
 
-## Références
-- [Documentation Dolibarr](https://www.dolibarr.org/)
-- [Guide d'installation](https://all-it-network.com/installer-dolibar/)
-- [GitHub de Dolibarr](https://github.com/Dolibarr/dolibarr/)
-- [Wiki de Dolibarr](https://wiki.dolibarr.org/)
+- **Nom d'utilisateur** : `admin`
+- **Mot de passe** : `admin`
 
-## Prochaines Étapes
-1. Ajouter des fonctionnalités supplémentaires dans Dolibarr (par exemple, gestion des produits).
-2. Améliorer la documentation et les tests.
-3. Préparer une présentation du projet pour la soutenance.
+### 4. Importer les données
+Si vous avez un fichier de données à importer dans Dolibarr, vous pouvez utiliser le script `import.sh`. Ce fichier vous permettra d’importer des fichiers SQL dans la base de données MariaDB associée à Dolibarr.
+
+- Pour importer les données, exécutez la commande suivante dans le terminal (depuis le dossier `sae-dolibarr`) :
+
+```bash
+bash sources/import.sh
+```
+
+Le script va automatiser l'importation des fichiers SQL dans la base de données MariaDB.
+
+### 5. Exporter les données
+Si vous souhaitez exporter les données de Dolibarr pour les sauvegarder ou les transférer ailleurs, vous pouvez utiliser le script `export.sh`.
+
+- Pour exporter les données, exécutez la commande suivante dans le terminal (depuis le dossier `sae-dolibarr`) :
+
+```bash
+bash sources/export.sh
+```
+
+Ce script génère un fichier SQL contenant les données actuelles de Dolibarr.
+
+### 6. Arrêter et supprimer les conteneurs
+Une fois que vous avez terminé avec Dolibarr, vous pouvez arrêter les conteneurs Docker avec la commande suivante :
+
+```bash
+docker-compose down
+```
+
+Cela arrête tous les services Docker et supprime les conteneurs. Si vous souhaitez nettoyer toutes les données persistantes, vous pouvez également supprimer le dossier `data/`.
+
+## Fonctionnalités du projet
+- **Automatisation de l'installation** : Le script `create_docker.sh` crée automatiquement l'environnement Docker avec Dolibarr et MariaDB.
+- **Importation de données** : Le script `import.sh` permet d'importer des fichiers SQL dans la base de données.
+- **Exportation de données** : Le script `export.sh` exporte les données de Dolibarr au format SQL.
+
+## Tests
+Une fois l’installation terminée et les services Docker en place, vous pouvez tester les fonctionnalités suivantes :
+1. **Connexion à Dolibarr** : Vérifiez si vous pouvez vous connecter à Dolibarr via `http://localhost:8080` avec les identifiants `admin / admin`.
+2. **Importation et exportation des données** : Testez les scripts d'import et d'export avec des fichiers SQL pour vérifier leur bon fonctionnement.
+
+## Problèmes connus
+- **Problème de connexion à MariaDB** : Si vous rencontrez un problème de connexion à la base de données, assurez-vous que le service MariaDB est bien démarré et que les variables d'environnement dans le fichier `create_docker.sh` sont correctes.
+- **Problèmes de performance avec de grosses bases** : L’importation de très grandes bases de données peut prendre du temps. Il est recommandé d’utiliser des bases de taille modérée pour les tests.
+
+## Conclusion
+Ce projet permet de tester une installation de Dolibarr dans un environnement Docker automatisé. Les scripts d’importation et d’exportation de données simplifient le processus de gestion de l’application. Pour tout problème ou suggestion, n'hésitez pas à ouvrir une issue sur le dépôt Git.
