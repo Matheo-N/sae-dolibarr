@@ -16374,31 +16374,31 @@ CREATE TABLE `llx_rights_def` (
 LOCK TABLES `llx_rights_def` WRITE;
 /*!40000 ALTER TABLE `llx_rights_def` DISABLE KEYS */;
 INSERT INTO `llx_rights_def` VALUES
-(121,'Read third parties','societe',0,0,1,'lire',NULL,'r',0),
-(122,'Create and update third parties','societe',0,0,1,'creer',NULL,'w',0),
-(125,'Delete third parties','societe',0,0,1,'supprimer',NULL,'d',0),
-(126,'Export third parties','societe',0,0,1,'export',NULL,'r',0),
-(130,'Modify thirdparty information payment','societe',0,0,1,'thirdparty_paymentinformation_advance','write','w',0),
-(251,'Read information of other users, groups and permissions','user',0,0,1,'user','lire','r',0),
-(252,'Read permissions of other users','user',0,0,1,'user_advance','readperms','r',0),
-(253,'Create/modify internal and external users, groups and permissions','user',0,0,1,'user','creer','w',0),
-(254,'Create/modify external users only','user',0,0,1,'user_advance','write','w',0),
-(255,'Modify the password of other users','user',0,0,1,'user','password','w',0),
-(256,'Delete or disable other users','user',0,0,1,'user','supprimer','d',0),
-(262,'Read all third parties (and their objects) by internal users (otherwise only if commercial contact). Not effective for external users (limited to themselves).','societe',0,0,1,'client','voir','r',0),
-(281,'Read contacts','societe',0,0,1,'contact','lire','r',0),
-(282,'Create and update contact','societe',0,0,1,'contact','creer','w',0),
-(283,'Delete contacts','societe',0,0,1,'contact','supprimer','d',0),
-(286,'Export contacts','societe',0,0,1,'contact','export','d',0),
-(341,'Read its own permissions','user',0,0,1,'self_advance','readperms','r',0),
-(342,'Create/modify of its own user','user',0,0,1,'self','creer','w',0),
-(343,'Modify its own password','user',0,0,1,'self','password','w',0),
-(344,'Modify its own permissions','user',0,0,1,'self_advance','writeperms','w',0),
-(351,'Read groups','user',0,0,1,'group_advance','read','r',0),
-(352,'Read permissions of groups','user',0,0,1,'group_advance','readperms','r',0),
-(353,'Create/modify groups and permissions','user',0,0,1,'group_advance','write','w',0),
-(354,'Delete groups','user',0,0,1,'group_advance','delete','d',0),
-(358,'Export all users','user',0,0,1,'user','export','r',0);
+(121,'Read third parties','societe',9,0,1,'lire',NULL,'r',0),
+(122,'Create and update third parties','societe',9,0,1,'creer',NULL,'w',0),
+(125,'Delete third parties','societe',9,0,1,'supprimer',NULL,'d',0),
+(126,'Export third parties','societe',9,0,1,'export',NULL,'r',0),
+(130,'Modify thirdparty information payment','societe',9,0,1,'thirdparty_paymentinformation_advance','write','w',0),
+(251,'Read information of other users, groups and permissions','user',5,0,1,'user','lire','r',0),
+(252,'Read permissions of other users','user',5,0,1,'user_advance','readperms','r',0),
+(253,'Create/modify internal and external users, groups and permissions','user',5,0,1,'user','creer','w',0),
+(254,'Create/modify external users only','user',5,0,1,'user_advance','write','w',0),
+(255,'Modify the password of other users','user',5,0,1,'user','password','w',0),
+(256,'Delete or disable other users','user',5,0,1,'user','supprimer','d',0),
+(262,'Read all third parties (and their objects) by internal users (otherwise only if commercial contact). Not effective for external users (limited to themselves).','societe',9,0,1,'client','voir','r',0),
+(281,'Read contacts','societe',9,0,1,'contact','lire','r',0),
+(282,'Create and update contact','societe',9,0,1,'contact','creer','w',0),
+(283,'Delete contacts','societe',9,0,1,'contact','supprimer','d',0),
+(286,'Export contacts','societe',9,0,1,'contact','export','d',0),
+(341,'Read its own permissions','user',5,0,1,'self_advance','readperms','r',0),
+(342,'Create/modify of its own user','user',5,0,1,'self','creer','w',0),
+(343,'Modify its own password','user',5,0,1,'self','password','w',0),
+(344,'Modify its own permissions','user',5,0,1,'self_advance','writeperms','w',0),
+(351,'Read groups','user',5,0,1,'group_advance','read','r',0),
+(352,'Read permissions of groups','user',5,0,1,'group_advance','readperms','r',0),
+(353,'Create/modify groups and permissions','user',5,0,1,'group_advance','write','w',0),
+(354,'Delete groups','user',5,0,1,'group_advance','delete','d',0),
+(358,'Export all users','user',5,0,1,'user','export','r',0);
 /*!40000 ALTER TABLE `llx_rights_def` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17767,7 +17767,7 @@ CREATE TABLE `llx_user` (
   UNIQUE KEY `uk_user_fk_member` (`fk_member`),
   UNIQUE KEY `uk_user_api_key` (`api_key`),
   KEY `idx_user_fk_societe` (`fk_soc`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -17777,7 +17777,8 @@ CREATE TABLE `llx_user` (
 LOCK TABLES `llx_user` WRITE;
 /*!40000 ALTER TABLE `llx_user` DISABLE KEYS */;
 INSERT INTO `llx_user` VALUES
-(1,0,NULL,NULL,1,1,0,NULL,'2024-11-13 13:31:12',NULL,NULL,'admin',NULL,NULL,'21232f297a57a5a743894a0e4a801fc3',NULL,NULL,NULL,NULL,'SuperAdmin',NULL,NULL,NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2024-11-21 10:45:04','2024-11-13 14:31:44',NULL,NULL,NULL,NULL,'172.22.0.1','172.22.0.1',NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,0,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+(1,0,NULL,NULL,1,1,0,NULL,'2024-11-13 13:31:12',NULL,NULL,'admin',NULL,NULL,'21232f297a57a5a743894a0e4a801fc3',NULL,NULL,NULL,NULL,'SuperAdmin',NULL,NULL,NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2024-11-21 14:21:35','2024-11-21 10:45:04',NULL,NULL,NULL,NULL,'172.22.0.1','172.22.0.1',NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,0,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(2,1,'',NULL,0,1,0,'2024-11-21 14:22:28','2024-11-21 13:22:28',NULL,NULL,'mtrou',NULL,'vxoXcmG8jucz','5fd19339b7dfeda5c505c7eb804104b1',NULL,'mYFk3usONwIR','man','MR','Trou','Michel','fhuehfjndjskfndsj','','',NULL,NULL,NULL,NULL,'','','','3630','','','',NULL,'','[]',NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,'','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2024-11-21 13:22:23',NULL,NULL,NULL,'',NULL,1,NULL,NULL,'',NULL,0,'',0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL);
 /*!40000 ALTER TABLE `llx_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -17980,7 +17981,7 @@ CREATE TABLE `llx_user_rights` (
   UNIQUE KEY `uk_user_rights` (`entity`,`fk_user`,`fk_id`),
   KEY `fk_user_rights_fk_user_user` (`fk_user`),
   CONSTRAINT `fk_user_rights_fk_user_user` FOREIGN KEY (`fk_user`) REFERENCES `llx_user` (`rowid`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -18014,7 +18015,8 @@ INSERT INTO `llx_user_rights` VALUES
 (16,1,1,352),
 (18,1,1,353),
 (20,1,1,354),
-(22,1,1,358);
+(22,1,1,358),
+(39,1,2,121);
 /*!40000 ALTER TABLE `llx_user_rights` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -18424,4 +18426,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-11-21 13:01:29
+-- Dump completed on 2024-11-21 13:25:46
