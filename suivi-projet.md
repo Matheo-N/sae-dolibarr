@@ -4,7 +4,7 @@
 ### Date de début : 15 octobre 2024
 
 ## 1. Introduction
-Ce projet vise à étudier l'installation et la configuration d'un ERP/CRM pour une entreprise, avec l'implémentation de **Dolibarr** comme solution.
+Ce projet vise à étudier l'installation et la configuration d'un outil de gestion, un ERP/CRM, pour une entreprise. Nous avons choisi d'implémenter **Dolibarr** comme solution.
 
 ## 2. Équipe
 - **Chef de projet** : Mathéo Nouvel
@@ -13,101 +13,105 @@ Ce projet vise à étudier l'installation et la configuration d'un ERP/CRM pour 
 ## 3. Journal de bord
 
 ### Mercredi 16/10
-- **Durée** : 5h30
+- **Durée** : ~5 heures
 - **Activités** :
-  - Constitution des équipes et planification initiale.
-  - Recherche sur Dolibarr, ses fonctionnalités, et son utilité pour l'entreprise.
-  - Première exploration de la documentation officielle de Dolibarr.
-  - Répartition des tâches en fonction des compétences et des besoins du projet.
+  - Constitution des équipes.
+  - Recherche préliminaire sur Dolibarr et ses fonctionnalités.
 
 ### Jeudi 17/10
-- **Durée** : 2h45
+- **Durée** : ~2 heures 30
 - **Activités** :
-  - Lecture de la documentation officielle pour mieux comprendre l’installation et les prérequis.
-  - Recherche des besoins techniques et préparation de l’environnement de travail (serveurs, systèmes d'exploitation compatibles, etc.).
-  - Discussion sur les différentes options d'installation possibles et les outils nécessaires pour le déploiement.
+  - Documentation sur l'installation de Dolibarr.
+  - Exploration des fonctionnalités de l'outil pour comprendre son adaptation aux besoins de l'entreprise.
 
 ### Jeudi 24/10
-- **Durée** : 2h30
+- **Durée** : ~2 heures
 - **Activités** :
-  - Comparaison de différentes images Docker de Dolibarr pour choisir la meilleure solution pour le projet.
-  - Finalisation des choix techniques pour le déploiement.
-  - Création d’un document pour résumer les étapes de l’installation, et première exploration du fichier `docker-compose.yml`.
+  - Comparaison des différentes images Docker disponibles pour Dolibarr.
+  - Documentation des étapes nécessaires pour configurer un conteneur fonctionnel.
 
 ### Vendredi 25/10
-- **Durée** : 3h
+- **Durée** : ~2 heures 30
 - **Activités** :
-  - Début des tests d'installation de Dolibarr dans Docker.
-  - Vérification des dépendances et des configurations requises pour faire fonctionner le conteneur.
-  - Écriture d’un script d’installation de base pour tester l’intégration avec MariaDB.
-  - Documentation de la mise en place initiale pour référence future.
+  - Tests initiaux d'installation de Dolibarr dans un environnement Docker.
+  - Vérification des dépendances (MariaDB et PHP) et des fichiers de configuration requis.
 
 ### Lundi 04/11
-- **Durée** : 2h45
+- **Durée** : ~2 heures 45
 - **Activités** :
-  - Résolution d’un problème de connexion entre Dolibarr et MariaDB.
-  - **Problème rencontré** : erreur de connexion empêchant Dolibarr d’accéder à la base de données MariaDB.
-  - **Solution** : mise en place d’un délai dans le script pour s’assurer que MariaDB soit entièrement démarré avant d’essayer de se connecter.
-  - Mise à jour du fichier `docker-compose.yml` et reconfiguration des paramètres de connexion.
+  - Résolution d’un problème de connexion entre Dolibarr et le SGBD MariaDB.
+  - **Problème** : Le conteneur Dolibarr essayait de se connecter avant que MariaDB soit opérationnel.
+  - **Solution** : Ajout d’un script de délai pour s’assurer que MariaDB soit prêt avant la connexion.
+  - Tests de fonctionnement après correction.
 
 ### Mercredi 06/11
-- **Durée** : 5h30
+- **Durée** : ~2 heures
 - **Activités** :
-  - Planification des prochaines étapes du projet, préparation du script d’installation complet.
-  - Révision des différentes méthodes d'installation possibles pour Dolibarr (Docker, fichiers sources, paquets).
-  - Réalisation d'une étude comparative des avantages et inconvénients de chaque méthode.
-  - Début de la création d’un plan détaillé pour chaque méthode et mise à jour de la documentation.
+  - Planification des prochaines étapes en équipe.
+  - Recherche approfondie sur les différentes méthodes d'installation de Dolibarr.
+  - Discussion sur les avantages/inconvénients des images Docker comparées à l’installation manuelle via fichiers sources.
 
 ### Jeudi 07/11
-- **Durée** : 2h45
+- **Durée** : ~2 heures 30
 - **Activités** :
-  - Test de l’installation via Docker en utilisant les différentes versions disponibles.
-  - Mise à jour du fichier `docker-compose.yml` pour intégrer la base de données et le serveur web.
-  - Vérification des dépendances entre les services et ajustement des configurations PHP dans le conteneur.
-  - Réalisation d’un premier test complet de l’environnement.
+  - Création initiale du script `create_docker.sh` pour automatiser l’installation de Dolibarr et MariaDB via Docker Compose.
+  - Début de tests sur l’automatisation des conteneurs.
 
 ### Mercredi 13/11
-- **Durée** : 5h30
+- **Durée** : ~5 heures
 - **Activités** :
-  - Revue et test de la mise en place de Dolibarr avec MariaDB dans Docker.
-  - Développement du script d’installation `install.sh` pour automatiser l’installation.
-  - Tests sur l'importation des données dans Dolibarr, y compris la gestion des fichiers CSV.
-  - Réajustement des configurations en fonction des retours de tests.
+  - Révision du script `create_docker.sh` et ajustements des variables d’environnement.
+  - Mise en place d’une documentation sur les tests d’installation.
+  - Tests approfondis de la connexion entre les services MariaDB et Dolibarr.
 
 ### Jeudi 14/11
-- **Durée** : 1h15
+- **Durée** : ~1 heure 15
 - **Activités** :
-  - Finalisation du script `install.sh`.
-  - Réalisation de tests sur l'importation de données sous différents formats (CSV et SQL dump).
-  - Révision de la configuration PHP et ajustement des paramètres pour un déploiement stable.
+  - Premiers tests d’importation/exportation des données via MariaDB (dump SQL).
+  - Création du script `export.sh` pour exporter facilement les données de la base.
 
 ### Lundi 18/11
-- **Durée** : 2h45
+- **Durée** : ~2 heures 30
 - **Activités** :
-  - Test de l’importation des données via le script `import_csv.sh` et configuration de la base de données.
-  - Ajustement des fichiers CSV pour correspondre aux formats attendus par Dolibarr.
-  - Recherche des erreurs communes lors de l’importation et résolution de problèmes liés aux encodages et aux types de données.
+  - Ajout d’un script `import.sh` pour automatiser la restauration des données SQL.
+  - Tests d’import/export avec différents jeux de données.
+  - Débogage d’un problème lié aux permissions lors de l’importation.
 
 ### Jeudi 21/11
-- **Durée** : 5h30
+- **Durée** : ~5 heures
 - **Activités** :
-  - Finalisation de la mise en place de la solution de sauvegarde automatique pour les données Dolibarr.
-  - Test de restauration des données pour s'assurer de la fiabilité de la solution de backup.
-  - Ajustement des priorités de démarrage des services Docker, en particulier la séquence de lancement pour éviter les erreurs de dépendance entre MariaDB et Dolibarr.
-  - Rédaction de la documentation finale sur le processus d’installation, de configuration et de sauvegarde.
+  - Finalisation des scripts `export.sh` et `import.sh` pour une gestion plus fluide des bases de données.
+  - Réorganisation du dépôt Git : création des dossiers `data`, `docs`, `sources`, et `tests` pour structurer le projet.
+  - Ajout de commentaires détaillés dans les scripts pour faciliter la maintenance et la compréhension.
+  - Mise à jour de la documentation finale (`suivi-projet.md`).
 
 ## 4. Description du projet
-L'objectif du projet est de migrer vers une solution ERP/CRM hébergée en interne, avec l’implémentation de Dolibarr. Le projet inclut l'automatisation de l'installation et de l'importation des données.
+L'objectif est de migrer d'une solution ERP/CRM externalisée vers une solution hébergée en interne, utilisant Dolibarr. Nous devons nous assurer que l'installation est automatisée et que l'importation des données est efficace.
 
 ### Cahier des charges
-1. Automatisation de l'installation via un script `install.sh`.
-2. Automatisation de l'importation des données via un script `import_csv.sh`.
-3. Utilisation de Docker pour faciliter l'installation.
-4. Mise en place d'un système de sauvegarde des données.
+1. Automatisation de l'installation via un script `create_docker.sh`.
+2. Automatisation de l'importation et de l'exportation des données via les scripts `import.sh` et `export.sh`.
+3. Utilisation de Docker pour simplifier l’installation et la gestion des services.
+4. Structuration du dépôt Git pour une meilleure gestion des fichiers et scripts.
 
 ## 5. Prochaines étapes
-1. Tester et documenter les différentes méthodes d'installation.
-2. Analyser le projet Dolibarr, ses origines et ses concurrents.
-3. Explorer l'IHM pour ajouter des modules et tester l'import/export de données.
-4. Manipuler la BDD via MySQL et tester l'importation et la modification des fichiers CSV.
-5. Étudier les tables Dolibarr et tester l'importation de la configuration.
+1. **Test en environnement réel** :
+   - Simuler une installation complète sur un serveur externe pour vérifier la portabilité des scripts.
+   - Documenter les éventuels problèmes et ajustements nécessaires.
+
+2. **Validation des scripts d’import/export** :
+   - Tester avec des bases de données plus volumineuses et des scénarios réels.
+   - Vérifier la compatibilité avec différents formats CSV.
+
+3. **Rédaction finale** :
+   - Préparer une documentation complète pour les utilisateurs.
+   - Détailler les étapes d’installation et les solutions aux problèmes fréquents.
+
+4. **Démonstration finale** :
+   - Préparer une présentation pour montrer le déploiement automatisé et les fonctionnalités principales de Dolibarr.
+   - Tester la fiabilité du projet en conditions simulées.
+
+## 6. Ressources
+Pour plus d'informations sur Dolibarr, vous pouvez consulter les liens suivants :
+- [Site officiel de Dolibarr](https://www.dolibarr.org/)
+- [Documentation de Dolibarr](https://wiki.dolibarr.org/)
