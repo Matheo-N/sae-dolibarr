@@ -122,6 +122,6 @@ L'objectif est de migrer d'une solution ERP/CRM externalisée vers une solution 
    - Rendre le projet accessible à d’autres étudiants ou entreprises via une documentation simplifiée et un dépôt Git bien structuré.
 
 ## 6. Ressources
-Pour plus d'informations sur Dolibarr, vous pouvez consulter les liens suivants :
+Pour plus d'informations sur Dolibarr, on peut consulter les liens suivants :
 - [Site officiel de Dolibarr](https://www.dolibarr.org/)
 - [Documentation de Dolibarr](https://wiki.dolibarr.org/)
