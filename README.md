@@ -19,13 +19,13 @@ Avant de commencer, assurez-vous d’avoir :
 
 ```
 .
-├── create_docker.sh     # Installation automatisé
+├── install.sh           # Installation automatisé
 ├── data/                # Répertoire pour les données
 ├── docs/                # Répertoire pour les documentations
 ├── sources/             # Répertoire pour les liens des sources consulté
 ├── tests/               # Répertoire pour l'environnement test (fichiers test)
 ├── suivi-projet.md      # Fichier suivis du projet (journal de bord)
-└── README.md            # Ce fichier
+└── README.md            # Fichier markdown qui décris l'utilisation de chaque fichier pour bien éxécuter le projet
 ```
 
 ---
@@ -78,6 +78,14 @@ docker-compose down
 ```
 
 ---
+## 🚀 Utilisation du fichier install.sh
+
+Sinon il y a directement le fichier **install.sh** qui permet comme demandé de faire toutes ces taches de facon **automatique** :
+1. Dans un premier temp il lance le docker compose
+2. Ensuite, il attend le lancement de mariadb pour éviter des possibles conflits
+3. Et pour finir, il importe les données de la base vers dolibarr
+   
+---
 
 ## 🛠️ Problèmes connus
 
@@ -91,8 +99,7 @@ docker-compose down
 
 ## 💡 Suggestions d’améliorations futures
 
-1. Ajouter un script d’installation automatique pour simplifier le processus.
-2. Automatiser les sauvegardes de la base de données.
+1. Automatiser les sauvegardes de la base de données.
 
 ---
 
