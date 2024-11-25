@@ -49,7 +49,7 @@ docker-compose up -d
 
 ### 3️⃣ Accéder à Dolibarr via un navigateur
 
-1. Ouvrez le navigateur.
+1. Ouvrir le navigateur.
 2. Accéder à l’URL suivante : [http://localhost:8080](http://localhost:8080).
 3. Suivre les instructions pour configurer Dolibarr (choisisir la base de données MySQL déjà configurée dans `docker-compose.yml`).
 
@@ -71,7 +71,7 @@ docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mariadb-dump --user root --passwo
 
 ### 5️⃣ Arrêter les conteneurs
 
-Pour arrêter les conteneurs, utilisez :
+Pour arrêter les conteneurs, utiliser :
 
 ```bash
 docker-compose down
@@ -82,10 +82,10 @@ docker-compose down
 ## 🛠️ Problèmes connus
 
 1. **Problème de permissions** : Certaines versions de Docker sous Windows peuvent générer des erreurs liées aux permissions des fichiers dans les volumes partagés.
-   - **Solution** : Modifiez les permissions avec `chmod` ou utilisez un utilisateur spécifique dans le conteneur.
+   - **Solution** : Modifier les permissions avec `chmod` ou utiliser un utilisateur spécifique dans le conteneur.
 
 2. **Accès à MySQL** : Des erreurs d’accès à la base de données peuvent survenir si les identifiants ne sont pas correctement configurés.
-   - **Solution** : Vérifiez et synchronisez les paramètres dans `docker-compose.yml` et l’interface de configuration de Dolibarr.
+   - **Solution** : Vérifier et synchroniser les paramètres dans `docker-compose.yml` et l’interface de configuration de Dolibarr.
 
 ---
 
