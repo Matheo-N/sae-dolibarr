@@ -100,6 +100,7 @@ Sinon il y a directement le fichier **install.sh** qui permet comme demandé de 
 ## 💡 Suggestions d’améliorations futures
 
 1. Automatiser les sauvegardes de la base de données.
+2. Générer une base de donnée avec des profils utilisateurs type
 
 ---
 
