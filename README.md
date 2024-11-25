@@ -1,7 +1,7 @@
 
 # Deployment d’une instance Dolibarr avec Docker
 
-```markdown
+
 Ce projet étudiant a pour objectif de déployer une instance fonctionnelle de l’ERP/CRM **Dolibarr** en utilisant des conteneurs Docker. Dolibarr est un logiciel open source utilisé pour la gestion des entreprises (comptabilité, facturation, gestion de stocks, etc.).
 
 ---
@@ -17,7 +17,7 @@ Avant de commencer, assurez-vous d’avoir :
 
 ## 📂 Arborescence du projet
 
-```plaintext
+```
 .
 ├── create_docker.sh     # Installation automatisé
 ├── data/                # Répertoire pour les données
