@@ -19,9 +19,12 @@ Avant de commencer, assurez-vous d’avoir :
 
 ```plaintext
 .
-├── docker-compose.yml   # Configuration Docker Compose
-├── dolibarr_data/       # Répertoire pour les données persistantes de Dolibarr
-├── db_data/             # Répertoire pour les données de la base MySQL
+├── create_docker.sh     # Installation automatisé
+├── data/                # Répertoire pour les données
+├── docs/                # Répertoire pour les documentations
+├── sources/             # Répertoire pour les liens des sources consulté
+├── tests/               # Répertoire pour l'environnement test (fichiers test)
+├── suivi-projet.md      # Fichier suivis du projet (journal de bord)
 └── README.md            # Ce fichier
 ```
 
@@ -32,13 +35,13 @@ Avant de commencer, assurez-vous d’avoir :
 ### 1️⃣ Cloner le dépôt Git
 
 ```bash
-git clone https://github.com/username/dolibarr-docker.git
+git clone git@github.com:Matheo-N/sae-dolibarr.git
 cd dolibarr-docker
 ```
 
 ### 2️⃣ Lancer les conteneurs Docker
 
-Lancez Docker Compose pour démarrer les conteneurs nécessaires (Dolibarr + MySQL) :
+Lancer Docker Compose pour démarrer les conteneurs nécessaires (Dolibarr + MySQL) :
 
 ```bash
 docker-compose up -d
@@ -46,24 +49,24 @@ docker-compose up -d
 
 ### 3️⃣ Accéder à Dolibarr via un navigateur
 
-1. Ouvrez votre navigateur.
-2. Accédez à l’URL suivante : [http://localhost:8080](http://localhost:8080).
-3. Suivez les instructions pour configurer Dolibarr (choisissez la base de données MySQL déjà configurée dans `docker-compose.yml`).
+1. Ouvrez le navigateur.
+2. Accéder à l’URL suivante : [http://localhost:8080](http://localhost:8080).
+3. Suivre les instructions pour configurer Dolibarr (choisisir la base de données MySQL déjà configurée dans `docker-compose.yml`).
 
 ### 4️⃣ Importer/Exporter une base de données via Docker
 
-#### Importer une base de données
-Placez le fichier `.sql` à importer dans le répertoire courant, puis exécutez :
+#### 🚀  Importer une base de données
+-> Utiliser le fichier import.sh :
 
 ```bash
-docker exec -i <container_mysql_id> mysql -u root -p dolibarr < fichier.sql
+docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mariadb --user "$BDD_LOGIN" --password="$BDD_PWD" "$NOM_BDD" < "$FICHIER_BDD"
 ```
 
-#### Exporter une base de données
-Créez un export de la base existante :
+#### 🚀  Exporter une base de données
+-> Utiliser le fichier export.sh : 
 
 ```bash
-docker exec <container_mysql_id> mysqldump -u root -p dolibarr > export.sql
+docker exec -i sae-dolibarr_mariadb_1 /usr/bin/mariadb-dump --user root --password=root dolibarr > backup_bdd.sql
 ```
 
 ### 5️⃣ Arrêter les conteneurs
@@ -89,9 +92,7 @@ docker-compose down
 ## 💡 Suggestions d’améliorations futures
 
 1. Ajouter un script d’installation automatique pour simplifier le processus.
-2. Intégrer un certificat SSL pour sécuriser les connexions.
-3. Déployer une version multi-utilisateurs sur un serveur distant pour tester en conditions réelles.
-4. Automatiser les sauvegardes de la base de données.
+2. Automatiser les sauvegardes de la base de données.
 
 ---
 
@@ -110,7 +111,4 @@ Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, 
 
 ---
 
-## 📄 Licence
-
-Ce projet est sous licence MIT. Consultez le fichier `LICENSE` pour plus de détails.
 ```
